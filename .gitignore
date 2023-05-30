@@ -10,6 +10,12 @@ compile_commands.json
 CTestTestfile.cmake
 _deps
 
+.idea/
+
 /cmake-build-sgdk/
 /cmake-build-debug/
 /out/
+
+*/cmake-build-sgdk/
+*/cmake-build-debug/
+*/out/

@@ -28,7 +28,12 @@ set(PROJECT_COMPILE_COMMAND
         ${GDK}/bin/make.exe
         -f ${GDK}/makefile.gen ${type})
 
-add_custom_target(game ALL ${SGDK_COMPILE_COMMAND}
+set(PROJECT_CLEAN_COMMAND
+        ${GDK}/bin/make.exe
+        clean
+        -f ${GDK}/makefile.gen ${type})
+
+add_custom_target(Game ALL ${PROJECT_CLEAN_COMMAND}
         COMMAND ${PROJECT_COMPILE_COMMAND}
         DEPENDS ${HEADER_FILES}
         SOURCES ${SRC}
@@ -36,3 +41,5 @@ add_custom_target(game ALL ${SGDK_COMPILE_COMMAND}
 
 add_executable(dummy ${SRC})
 target_include_directories(dummy PUBLIC ${HEADER_FILES})
+
+add_subdirectory(tests)
